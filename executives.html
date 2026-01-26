@@ -38,10 +38,15 @@
         </span>
       </a>
 
-      <ul class="nav-menu">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation">
+        ☰
+      </button>
+
+      <ul class="nav-menu" id="navMenu">
         <li><a href="index.html">Home</a></li>
         <li><a href="who-we-are.html">Who We Are</a></li>
         <li><a href="services.html">Our Services</a></li>
+        <li><a href="partners.html">Our Partners</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="executives.html" class="active">Senior Executives</a></li>
         <li><a href="contact.html">Contact Us</a></li>
@@ -70,9 +75,35 @@
       </div>
     </div>
 
-    <p class="hero-footer">© 2024 All Rights Reserved</p>
+  <p class="hero-footer">© 2024 All Rights Reserved</p>
   </div>
 </div>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navMenu');
+  const navBar = document.querySelector('.nav-bar');
+
+  navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    navToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+  });
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      navBar.classList.add('scrolled');
+    } else {
+      navBar.classList.remove('scrolled');
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!navMenu.contains(e.target) && !navToggle.contains(e.target) && navMenu.classList.contains('active')) {
+      navMenu.classList.remove('active');
+      navToggle.textContent = '☰';
+    }
+  });
+</script>
 
 </body>
 </html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CINEMARK Consult Limited - Our Partners</title>
+  <link rel="stylesheet" href="hero.css" />
+</head>
+<body>
+
+<div class="hero-card">
+  <div class="hero-overlay"></div>
+
+  <nav class="nav-bar">
+    <div class="nav-content">
+
+      <a href="index.html" class="nav-logo">
+        <span aria-hidden="true">
+          <svg viewBox="0 0 72 72" width="42" height="42">
+            <defs>
+              <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#46F0FF"/>
+                <stop offset="1" stop-color="#6C4BFF"/>
+              </linearGradient>
+            </defs>
+            <path d="M14 22 V12 H58 V58 H48"
+              fill="none" stroke="url(#g)" stroke-width="3.2"
+              stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+            <text x="36" y="45" text-anchor="middle"
+              font-size="26" font-family="Inter, system-ui, sans-serif"
+              font-weight="600" fill="url(#g)" opacity="0.95">C</text>
+          </svg>
+        </span>
+
+        <span class="brand-text">
+          <span class="brand-name">CINEMARK</span>
+          <span class="brand-sub">CONSULT LIMITED</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation">
+        ☰
+      </button>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="who-we-are.html">Who We Are</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a class="active" href="partners.html">Our Partners</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="executives.html">Senior Executives</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <div class="hero-content">
+    <div class="centered-text">
+      <p class="hero-tagline">About Our Partners</p>
+      <h1>Our Partners</h1>
+      <p class="content">
+        Trusted by industry-leading partners to deliver reliable financial and<br/>
+        business solutions worldwide.
+      </p>
+
+      <div class="partners-grid">
+        <img src="assests/Frame 12.png" alt="NSE" class="partner-logo">
+        <img src="assests/image 4.png" alt="CMA" class="partner-logo">
+        <img src="assests/image 5.png" alt="Partner Logo" class="partner-logo">
+        <img src="assests/1631325670595 1.png" alt="CDSC" class="partner-logo">
+      </div>
+    </div>
+
+    <p class="hero-footer">© 2024 All Rights Reserved</p>
+  </div>
+</div>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navMenu');
+  const navBar = document.querySelector('.nav-bar');
+
+  navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    navToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+  });
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      navBar.classList.add('scrolled');
+    } else {
+      navBar.classList.remove('scrolled');
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!navMenu.contains(e.target) && !navToggle.contains(e.target) && navMenu.classList.contains('active')) {
+      navMenu.classList.remove('active');
+      navToggle.textContent = '☰';
+    }
+  });
+</script>
+
+</body>
+</html>

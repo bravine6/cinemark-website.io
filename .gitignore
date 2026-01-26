@@ -13,5 +13,6 @@ Thumbs.db
 *.swp
 *.swo
 *~
-.vscode/
 .idea/
+config.bat
+node_modules

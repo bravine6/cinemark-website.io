@@ -38,10 +38,15 @@
         </span>
       </a>
 
-      <ul class="nav-menu">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation">
+        ☰
+      </button>
+
+      <ul class="nav-menu" id="navMenu">
         <li><a href="index.html">Home</a></li>
         <li><a href="who-we-are.html">Who We Are</a></li>
         <li><a href="services.html">Our Services</a></li>
+        <li><a href="partners.html">Our Partners</a></li>
         <li><a href="about.html" class="active">About Us</a></li>
         <li><a href="executives.html">Senior Executives</a></li>
         <li><a href="contact.html">Contact Us</a></li>
@@ -51,19 +56,53 @@
   </nav>
 
   <div class="hero-content">
-    <p class="hero-tagline">About Our Company</p>
+    <div class="split-layout">
+      <div class="text-side">
+        <p class="hero-tagline">About Our Company</p>
+        <h1>About Us</h1>
+        <p class="content">
+          Cinemark Consult Limited provides professional accounting and finance solutions designed to help businesses
+          stay compliant, optimize cash flow, and grow with confidence. We combine strong financial expertise with
+          practical business insight to deliver clear, actionable support for our clients.
+        </p>
+        <p class="hero-footer">© 2024 All Rights Reserved</p>
+      </div>
 
-    <h1>About Us</h1>
-
-    <p style="max-width: 900px; color: rgba(255,255,255,0.85); font-size: 18px; line-height: 1.7;">
-      Cinemark Consult Limited provides professional accounting and finance solutions designed to help businesses
-      stay compliant, optimize cash flow, and grow with confidence. We combine strong financial expertise with
-      practical business insight to deliver clear, actionable support for our clients.
-    </p>
-
-    <p class="hero-footer">© 2024 All Rights Reserved</p>
+      <div class="image-side">
+        <div class="tilt-wrapper">
+          <div class="white-square"></div>
+          <img src="assests/image 1.png" alt="About Cinemark" class="main-image">
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navMenu');
+  const navBar = document.querySelector('.nav-bar');
+
+  navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    navToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+  });
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      navBar.classList.add('scrolled');
+    } else {
+      navBar.classList.remove('scrolled');
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!navMenu.contains(e.target) && !navToggle.contains(e.target) && navMenu.classList.contains('active')) {
+      navMenu.classList.remove('active');
+      navToggle.textContent = '☰';
+    }
+  });
+</script>
 
 </body>
 </html>

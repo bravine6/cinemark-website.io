@@ -39,10 +39,15 @@
         </span>
       </a>
 
-      <ul class="nav-menu">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation">
+        ☰
+      </button>
+
+      <ul class="nav-menu" id="navMenu">
         <li><a href="index.html">Home</a></li>
         <li><a href="who-we-are.html" class="active">Who We Are</a></li>
         <li><a href="services.html">Our Services</a></li>
+        <li><a href="partners.html">Our Partners</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="executives.html">Senior Executives</a></li>
         <li><a href="contact.html">Contact Us</a></li>
@@ -52,17 +57,27 @@
   </nav>
 
   <div class="hero-content">
-    <p class="hero-tagline">About CINEMARK Consult Limited</p>
+    <div class="split-layout">
+      <div class="text-side">
+        <p class="hero-tagline">About CINEMARK Consult Limited</p>
+        <h1>Who We Are</h1>
+        <p class="content">
+          CINEMARK Consult Limited is a professional consulting firm focused on accounting, finance, and business
+          advisory services. We partner with individuals, SMEs, and growing organizations to simplify financial
+          management, strengthen compliance, and support sustainable growth.
+        </p>
+      </div>
 
-    <div class="content">
-      <h1 class="section-title">Who We Are</h1>
+      <div class="image-side">
+        <div class="tilt-wrapper">
+          <div class="white-square"></div>
+          <img src="assests/Frame 2 (1).png" alt="Our Team" class="main-image">
+        </div>
+      </div>
+    </div>
 
-      <p>
-        CINEMARK Consult Limited is a professional consulting firm focused on accounting, finance, and business
-        advisory services. We partner with individuals, SMEs, and growing organizations to simplify financial
-        management, strengthen compliance, and support sustainable growth.
-      </p>
-
+    <div class="purpose-section">
+      <h2 class="purpose-title">Our Purpose</h2>
       <div class="cards">
         <div class="card">
           <h3>Our Mission</h3>
@@ -73,7 +88,7 @@
           <p>To be a trusted regional partner for modern finance and accounting services, known for integrity and excellence.</p>
         </div>
         <div class="card">
-          <h3>Our Values</h3>
+          <h3>Our Core Values</h3>
           <p>Integrity, accuracy, confidentiality, responsiveness, and a strong commitment to client success.</p>
         </div>
       </div>
@@ -82,6 +97,32 @@
     <p class="hero-footer">© 2024 All Rights Reserved</p>
   </div>
 </div>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navMenu');
+  const navBar = document.querySelector('.nav-bar');
+
+  navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    navToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+  });
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      navBar.classList.add('scrolled');
+    } else {
+      navBar.classList.remove('scrolled');
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!navMenu.contains(e.target) && !navToggle.contains(e.target) && navMenu.classList.contains('active')) {
+      navMenu.classList.remove('active');
+      navToggle.textContent = '☰';
+    }
+  });
+</script>
 
 </body>
 </html>
